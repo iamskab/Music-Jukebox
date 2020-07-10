@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jukebox</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+  <!-- Visualizer style -->
+</head>
+<body>
+  <audio id="jukebox">
+    <source src="" type="audio/mpeg">
+    </audio>
+    <div id="controls">
+      <h2> <span id="mp3src">. . .</span></h2>
+      <i class="fa fa-step-backward" aria-hidden="true" id="previous"></i>
+      <i class="fa fa-random" aria-hidden="true" id="shuffle"></i>
+      <i class="fa fa-play-circle" aria-hidden="true" id="play"></i>
+      <i class="fa fa-pause-circle-o" aria-hidden="true" id="pause"></i>
+      <i class="fa fa-step-forward" aria-hidden="true" id="next"></i>
+      <input type="range" onchange="setVolume();" id='volume1' min=0 max=1 step=0.01 value="1l">
+      <h3><span id="audioCurrent">00:00</span> - <span id="audioLength">00:00</span></h3>
+    </div>
+    <div id="playlist-container">
+      <div id="addAudio">
+        <h2>Add to Playlist:</h2>
+        <p>Example mp3 links for testing: <a href="http://www.download2mp3.com/beethoven.htm">Beethoven</a></p>
+        <form onsubmit="formReset(); event.preventDefault();" action='index.html' method="post" id="audioForm">
+          <!-- line above, action='javascript:void(0);' makes it so that page doesn't reload on submit -->
+          <input type="text" name="Audio Source" placeholder="Source" id="audioInput" ><br>
+          <input type="text" name="Audio Name" placeholder="Title" id="audioName"><br>
+          <input type="submit" name="" value="Add" id="addButton"><br>
+          <!-- <input type="file" name="Upload" value="" id="upload"> -->
+        </form>
+      </div>
+      <h2>Playlist:</h2>
+      <ol id="playlist">
+      </ol>
+    </div>
+
+    <a href="#" id="iconLeft"><i class="fa fa-chevron-left" aria-hidden="true" ></i></a>
+    <a href="#" id="iconRight"><i class="fa fa-chevron-right" aria-hidden="true" ></i></a>
+
+
+    <!-- Visualizer -->
+
+    <script src="script.js" charset="utf-8"></script>
+    <script src="https://use.fontawesome.com/61ae56f9bc.js"></script>
+  </body>
+  </html>
